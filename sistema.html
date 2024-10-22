@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cliente</title>
+    <script>
+        async function registrarCliente(event) {
+            event.preventDefault(); // Evitar la recarga de la página
+
+            // Obtener los datos del formulario
+            const cedula = document.getElementById('cedula_cliente').value;
+            const nombre = document.getElementById('nombre_cliente').value;
+            const correo = document.getElementById('correo_cliente').value;
+            const celular = document.getElementById('celular_cliente').value;
+
+            // Crear el objeto con los datos
+            const datosCliente = {
+                cedula_cliente: cedula,
+                nombre_cliente: nombre,
+                correo_cliente: correo,
+                celular_cliente: celular
+            };
+
+            try {
+                // Enviar los datos usando fetch
+                const respuesta = await fetch('http://localhost/sistema/registrar_cliente.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(datosCliente)
+                });
+
+                // Verificar si la respuesta es exitosa
+                if (respuesta.ok) {
+                    document.getElementById('mensaje').innerText = "Usuario registrado exitosamente";
+                } else {
+                    document.getElementById('mensaje').innerText = "Error al registrar el usuario";
+                }
+            } catch (error) {
+                document.getElementById('mensaje').innerText = "Error de conexión";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Registrar Cliente</h2>
+    <form onsubmit="registrarCliente(event)">
+        <label for="cedula_cliente">Cédula del Cliente:</label><br>
+        <input type="number" id="cedula_cliente" name="cedula_cliente" maxlength="10" required><br><br>
+        
+        <label for="nombre_cliente">Nombres y apellidos </label><br>
+        <input type="text" id="nombre_cliente" name="nombre_cliente" maxlength="150" required><br><br>
+
+        <label for="correo_cliente">Correo del Cliente:</label><br>
+        <input type="email" id="correo_cliente" name="correo_cliente" maxlength="150" required><br><br>
+
+        <label for="celular_cliente">Celular del Cliente:</label><br>
+        <input type="number" id="celular_cliente" name="celular_cliente" maxlength="10" required><br><br>
+
+        <input type="submit" value="Registrar Cliente">
+    </form>
+    
+    <!-- Aquí se mostrará el mensaje de confirmación -->
+    <p id="mensaje" style="color: green;"></p>
+</body>
+</html>
