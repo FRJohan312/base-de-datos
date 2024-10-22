@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Cliente</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script>
         async function registrarCliente(event) {
             event.preventDefault(); // Evitar la recarga de la página
@@ -45,24 +46,26 @@
     </script>
 </head>
 <body>
-    <h2>Registrar Cliente</h2>
-    <form onsubmit="registrarCliente(event)">
-        <label for="cedula_cliente">Cédula del Cliente:</label><br>
-        <input type="number" id="cedula_cliente" name="cedula_cliente" maxlength="10" required><br><br>
+    <div class="form-container">
+        <h2>Registrar Cliente</h2>
+        <form onsubmit="registrarCliente(event)">
+            <label for="cedula_cliente">Cédula del Cliente:</label><br>
+            <input type="number" id="cedula_cliente" name="cedula_cliente" maxlength="10" required><br><br>
+            
+            <label for="nombre_cliente">Nombres y apellidos </label><br>
+            <input type="text" id="nombre_cliente" name="nombre_cliente" maxlength="150" required><br><br>
+
+            <label for="correo_cliente">Correo del Cliente:</label><br>
+            <input type="email" id="correo_cliente" name="correo_cliente" maxlength="150" required><br><br>
+
+            <label for="celular_cliente">Celular del Cliente:</label><br>
+            <input type="number" id="celular_cliente" name="celular_cliente" maxlength="10" required><br><br>
+
+            <input type="submit" value="Registrar Cliente">
+        </form>
         
-        <label for="nombre_cliente">Nombres y apellidos </label><br>
-        <input type="text" id="nombre_cliente" name="nombre_cliente" maxlength="150" required><br><br>
-
-        <label for="correo_cliente">Correo del Cliente:</label><br>
-        <input type="email" id="correo_cliente" name="correo_cliente" maxlength="150" required><br><br>
-
-        <label for="celular_cliente">Celular del Cliente:</label><br>
-        <input type="number" id="celular_cliente" name="celular_cliente" maxlength="10" required><br><br>
-
-        <input type="submit" value="Registrar Cliente">
-    </form>
-    
-    <!-- Aquí se mostrará el mensaje de confirmación -->
-    <p id="mensaje" style="color: green;"></p>
+        <!-- Aquí se mostrará el mensaje de confirmación -->
+        <p id="mensaje" style="color: green;"></p>
+    </div>
 </body>
 </html>

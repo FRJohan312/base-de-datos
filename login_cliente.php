@@ -47,11 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && strpos($_SERVER['CONTENT_TYPE'], 'ap
         $stmt->close();
     } else {
         // Responder con error si los datos no son válidos
-        echo json_encode(["mensaje" => "Datos inválidos o incompletos"]);
+        echo json_encode(["mensaje" => "Datos inválidos"]);
     }
 } else {
     // Responder con error si no es una solicitud POST válida
-    echo json_encode(["mensaje" => "Solicitud no válida o malformada"]);
+    echo json_encode(["mensaje" => "Solicitud no válida"]);
 }
 
 // Cerrar la conexión

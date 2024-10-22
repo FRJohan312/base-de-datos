@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script>
         async function loginUsuario(event) {
             event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional (recarga)
@@ -43,18 +44,20 @@
     </script>
 </head>
 <body>
-    <h2>Iniciar Sesión</h2>
-    <form onsubmit="loginUsuario(event)">
-        <label for="cedula_cliente">Cédula del Cliente:</label><br>
-        <input type="number" id="cedula_cliente" name="cedula_cliente" maxlength="10" required><br><br>
+    <div class="form-container">
+     <h2>Iniciar Sesión</h2>
+        <form onsubmit="loginUsuario(event)">
+            <label for="cedula_cliente">Cédula del Cliente:</label><br>
+            <input type="number" id="cedula_cliente" name="cedula_cliente" maxlength="10" required><br><br>
 
-        <label for="correo_cliente">Correo del Cliente:</label><br>
-        <input type="email" id="correo_cliente" name="correo_cliente" maxlength="150" required><br><br>
+            <label for="correo_cliente">Correo del Cliente:</label><br>
+            <input type="email" id="correo_cliente" name="correo_cliente" maxlength="150" required><br><br>
 
-        <input type="submit" value="Ingresar">
-    </form>
-    
-    <!-- Mensaje de bienvenida o error -->
-    <p id="mensaje" style="color: green;"></p>
+            <input type="submit" value="Ingresar">
+        </form>
+        
+        <!-- Mensaje de bienvenida o error -->
+        <p id="mensaje" style="color: green;"></p>
+    </div>
 </body>
 </html>
